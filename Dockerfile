@@ -1,5 +1,9 @@
-FROM alpine:latest
+FROM jenkins/jenkins:alpine
 
-EXPOSE 80
-RUN curl https://get.jenkins.io/war-stable/latest/jenkins.war
+EXPOSE 8080
 
+COPY --chown=jenkins:jenkins ./plugins.txt .
+
+RUN ls -lart && id jenkins
+
+RUN jenkins-plugin-cli --plugin-file ./plugins.txt

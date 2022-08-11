@@ -8,7 +8,7 @@ metadata:
     owner: 'ali'
 spec:
   selector:
-    app: jenkins-master
+    app: jenkins-server
   type: NodePort
   ports:
     - port: 8080

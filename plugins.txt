@@ -1,0 +1,7 @@
+kubernetes
+blueocean
+cloudbees-folder
+job-dsl
+monitoring
+mailer
+git

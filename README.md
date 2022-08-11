@@ -1,2 +1,2 @@
-# jenkins-eks
-Jenkins Deployment on EKS
+# jenkins-k8s
+Jenkins Deployment on a baremetal cluster

@@ -6,4 +6,4 @@ COPY --chown=jenkins:jenkins ./plugins.txt .
 
 RUN ls -lart && id jenkins
 
-RUN jenkins-plugin-cli --plugin-file ./plugins.txt
+RUN jenkins-plugin-cli --plugin-file ./plugins.txt --verbose

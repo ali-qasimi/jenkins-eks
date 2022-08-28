@@ -19,7 +19,8 @@ spec:
       serviceAccountName: jenkins-admin
       containers:
         - name: jenkins
-          image: jenkins/jenkins:alpine
+          image: jenkinsalpine:28082022
+          imagePullPolicy: Never            #this avoids pulling the image from the repository, instead uses local.
           ports:
             - name: httpport
               containerPort: 8080

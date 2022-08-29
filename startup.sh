@@ -1,6 +1,6 @@
 #!/bin/bash -x
 
-export TIMESTAMP=$(date +'%d%m%Y')
+export TIMESTAMP=$(date +'%Y%m%d-%H%M%S')
 docker image build . --tag jenkinsalpine:$TIMESTAMP
 
 if [[ $? -ne '0' ]]; then

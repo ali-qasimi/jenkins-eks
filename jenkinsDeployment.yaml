@@ -39,6 +39,27 @@ spec:
             periodSeconds: 60
             timeoutSeconds: 30
             failureThreshold: 3
+          env:
+            - name: JENKINS_NAME
+              value: "jenkins-master-k8s"
+            - name: JENKINS_HOME
+              value: "/var/jenkins_home"
+            - name: JENKINS_SECRET
+              value: "k8s@Jenkins"
+            - name: JENKINS_AGENT_NAME
+              value: "jenkinsAgent"
+            - name: NAMESPACE
+              value: "jenkins"
+            - name: JENKINS_AGENT_IMAGE
+              value: "jenkins/agent:latest"
+            - name: JENKINS_AGENT_REQUEST_CPU
+              value: "0.2"
+            - name: JENKINS_AGENT_REQUEST_MEMORY
+              value: "2Mi"
+            - name: JENKINS_AGENT_LIMIT_CPU
+              value: "0.2"
+            - name: JENKINS_AGENT_LIMIT_MEMORY
+              value: "2Mi"
           volumeMounts:
             - name: jenkins-home
               mountPath: /var/jenkins_home

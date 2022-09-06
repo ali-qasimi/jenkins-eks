@@ -19,7 +19,7 @@ spec:
       serviceAccountName: jenkins-admin
       containers:
         - name: jenkins
-          image: jenkinsalpine:$TIMESTAMP
+          image: jenkinsalpine:20220906-232644
           imagePullPolicy: Never            #this avoids pulling the image from the repository, instead uses local.
           ports:
             - name: httpport
@@ -44,8 +44,6 @@ spec:
               value: "jenkins-master-k8s"
             - name: JENKINS_HOME
               value: "/var/jenkins_home"
-            - name: JENKINS_SECRET
-              value: "k8s@Jenkins"
             - name: JENKINS_AGENT_NAME
               value: "jenkinsAgent"
             - name: NAMESPACE
@@ -62,7 +60,8 @@ spec:
               value: "2Mi"
           volumeMounts:
             - name: jenkins-home
-              mountPath: /var/jenkins_home
+              mountPath: /var/jenkins_home/jobs/
       volumes:
         - name: jenkins-home
-          emptyDir: { }
+          persistentVolumeClaim:
+            claimName: jenkins-pvc

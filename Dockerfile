@@ -6,7 +6,7 @@ COPY --chown=jenkins:jenkins ./plugins.txt .
 
 RUN jenkins-plugin-cli --plugin-file ./plugins.txt --verbose
 
-COPY --chown=jenkins:jenkins ./init.groovy.d $JENKINS_HOME/init.groovy.d
+ADD --chown=jenkins:jenkins init.groovy.d /var/jenkins_home/init.groovy.d
 
-RUN ls -lart $JENKINS_HOME && id jenkins
+RUN ls -lart && pwd
 
